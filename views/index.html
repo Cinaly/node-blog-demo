@@ -3,8 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
 </head>
 <body>
 <h1>主页</h1>
+<%= session.username%>
+
+<a href="/logout">注销</a>
+
+<form action="/article/create" method="post">
+    <input type="text" name="title" placeholder="title"><br>
+    <textarea type="text" name="content"></textarea><br>
+    <input type="file" name="photo"><br>
+    <input type="submit" value="发布文章"><br>
+</form>
+
+<%= message%>
+
+<hr>
+<h3>article list</h3>
+<table>
+    <tr>
+        <th>id</th>
+        <th>title</th>
+        <th>content</th>
+        <th>create_time</th>
+        <th>photo</th>
+        <th>uid</th>
+        <th>operation</th>
+    </tr>
+    <% for(let article of articles){%>
+        <tr>
+            <td><%= article.aid%></td>
+            <td><%= article.title%></td>
+            <td><%= article.content%></td>
+            <td><%= article.create_time%></td>
+            <td><%= article.photo%></td>
+            <td><%= article.uid%></td>
+            <td><a href="">edit</a>&nbsp;&nbsp;&nbsp;<a href="">delete</a></td>
+
+        </tr>
+    <%}%>
+</table>
+
+<script src="/js/jquery-3.2.1.js"></script>
+<script src="/js/index.js"></script>
+
 </body>
 </html>
