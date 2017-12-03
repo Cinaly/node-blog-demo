@@ -4,7 +4,7 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>注册</title>
+    <title>发布文章</title>
     <link rel="stylesheet" type="text/css" href="/css/normalize.css"/>
     <link rel="stylesheet" type="text/css" href="/css/demo.css"/>
     <!--必要样式-->
@@ -20,22 +20,17 @@
         <div id="large-header" class="large-header">
             <canvas id="demo-canvas"></canvas>
             <div class="logo_box">
-                <h3>欢迎你</h3>
-                <form id="sign-up-form" action="/signUp" name="f" method="post" enctype="multipart/form-data">
+                <h3>发布博文</h3>
+                <form id="post-form" action="/post/create" name="f" method="post">
                     <div class="input_outer">
-                        <span class="u_user"></span>
-                        <input name="username" class="text" style="color: #FFFFFF !important" type="text"
-                               placeholder="请输入账户">
+                        <input name="title" class="text" style="color: #FFFFFF !important" type="text"
+                               placeholder="文章标题">
                     </div>
                     <div class="input_outer">
-                        <span class="us_uer"></span>
-                        <input name="password" class="text"
+
+                        <input name="content" class="text"
                                style="color: #FFFFFF !important; position:absolute; z-index:100;" value=""
-                               type="password" placeholder="请输入密码">
-                    </div>
-                    <div class="mdl-textfield mdl-js-textfield">
-                        <input class="mdl-textfield__input" type="file" id="avatar" name="avatar">
-                        <label class="mdl-textfield__label" for="avatar">Avatar</label>
+                               type="text" placeholder="文章内容">
                     </div>
                     <% if(success){%>
                     <div style="color:forestgreen">
@@ -47,10 +42,7 @@
                         <%= error%>
                     </div>
                     <%}%>
-
-                    <div class="mb2">
-                        <a class="act-but submit" href="javascript:;" style="color: #FFFFFF">注册</a>
-                    </div>
+                    <div class="mb2"><a class="act-but submit" href="javascript:;" style="color: #FFFFFF">发布文章</a></div>
                 </form>
             </div>
         </div>
@@ -67,9 +59,8 @@
 <script>
     $(function () {
         $("a.submit").click(function () {
-            $("#sign-up-form").submit();
+            $("#post-form").submit();
         })
     })
 </script>
-
 </html>
