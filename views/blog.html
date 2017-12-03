@@ -104,58 +104,27 @@
                     </button>
                 </div>
             </div>
-            <div class="mdl-card on-the-road-again mdl-cell mdl-cell--12-col">
-                <div class="mdl-card__media mdl-color-text--grey-50">
-                    <h3><a href="entry.html"><%= session.username%> 's Blog</a></h3>
-                </div>
-                <div class="mdl-color-text--grey-600 mdl-card__supporting-text">
-                    Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim
-                    nostrud aliqua consectetur ad consectetur sunt ullamco officia. Ex officia laborum et consequat
-                    duis.
-                </div>
-                <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
-                    <img style="width:44px;height: 44px;" src="/avatars/<%= session.avatar%>" alt="">
-                    <div>
-                        <strong>The Newist</strong>
-                        <span>2 days ago</span>
-                    </div>
-                </div>
-            </div>
+            <% for(let post of posts){%>
             <div class="mdl-card amazing mdl-cell mdl-cell--12-col">
                 <div class="mdl-card__title mdl-color-text--grey-50">
-                    <h3 class="quote"><a href="entry.html">I couldn’t take any pictures but this was an amazing
-                        thing…</a></h3>
+                    <h3 class="quote">
+                        <a href="/post/<%= posts.pid%>">
+                            <%= post.title%>
+                        </a>
+                    </h3>
                 </div>
                 <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-                    Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim
-                    nostrud aliqua consectetur ad consectetur sunt ullamco officia. Ex officia laborum et consequat
-                    duis.
+                    <%= post.content%>
                 </div>
                 <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
-                    <div class="minilogo"></div>
+                    <img src="/avatars/<%= post.avatar%>" style="width: 44px;height: 44px;" alt="">
                     <div>
-                        <strong>The Newist</strong>
-                        <span>2 days ago</span>
+                        <strong><%= post.uname%></strong>
+                        <span><%= post.addtime%></span>
                     </div>
                 </div>
             </div>
-            <div class="mdl-card shopping mdl-cell mdl-cell--12-col">
-                <div class="mdl-card__media mdl-color-text--grey-50">
-                    <h3><a href="entry.html">Shopping</a></h3>
-                </div>
-                <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-                    Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim
-                    nostrud aliqua consectetur ad consectetur sunt ullamco officia. Ex officia laborum et consequat
-                    duis.
-                </div>
-                <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
-                    <div class="minilogo"></div>
-                    <div>
-                        <strong>The Newist</strong>
-                        <span>2 days ago</span>
-                    </div>
-                </div>
-            </div>
+            <%}%>
             <nav class="demo-nav mdl-cell mdl-cell--12-col">
                 <div class="section-spacer"></div>
                 <a href="entry.html" class="demo-nav__button" title="show more">
@@ -191,7 +160,7 @@
 
     $(function () {
         $('#add').click(function () {
-            location.href="/post";
+            location.href = "/post";
         })
     })
 </script>
