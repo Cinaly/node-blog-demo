@@ -9,19 +9,22 @@
     <link rel="stylesheet" type="text/css" href="/css/demo.css"/>
     <!--必要样式-->
     <link rel="stylesheet" type="text/css" href="/css/component.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css"/>
     <!--[if IE]>
     <script src="/js/html5.js"></script>
     <![endif]-->
 </head>
 <body>
 <div class="container demo-1">
-    <%- include('inc/header.html')%>
+
     <div class="content">
+
         <div id="large-header" class="large-header">
+            <%- include('inc/header.html')%>
             <canvas id="demo-canvas"></canvas>
             <div class="logo_box">
-                <h3>欢迎你</h3>
-                <form id="sign-up-form" action="/signUp" name="f" method="post" enctype="multipart/form-data">
+                <h3>注册</h3>
+                <form id="sign-up-form" action="/signUp" name="f" method="post" enctype="multipart/form-data" autocomplete="off">
                     <div class="input_outer">
                         <span class="u_user"></span>
                         <input name="username" class="text" style="color: #FFFFFF !important" type="text"
@@ -33,10 +36,14 @@
                                style="color: #FFFFFF !important; position:absolute; z-index:100;" value=""
                                type="password" placeholder="请输入密码">
                     </div>
-                    <div class="mdl-textfield mdl-js-textfield">
-                        <input class="mdl-textfield__input" type="file" id="avatar" name="avatar">
-                        <label class="mdl-textfield__label" for="avatar">Avatar</label>
+                    <div style="display: flex;justify-content: space-between">
+                        <a class="upload">
+                            点击这里上传头像
+                            <input class="mdl-textfield__input" type="file" id="avatar" name="avatar">
+                        </a>
+                        <span style="line-height: 30px;color:rgba(255,255,255,0.5)">文件名</span>
                     </div>
+
                     <% if(success){%>
                     <div style="color:forestgreen">
                         <%= success%>

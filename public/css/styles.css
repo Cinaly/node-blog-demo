@@ -498,3 +498,7 @@ body .demo-blog {
   background-color: white;
   box-sizing: border-box;
 }
+
+header .mdl-navigation__link{
+    color: #fff;
+}
